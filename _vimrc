@@ -44,7 +44,6 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 call neobundle#end()
 
