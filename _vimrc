@@ -17,6 +17,7 @@ set softtabstop=4
 set undolevels=300
 set wildmenu wildmode=list:full
 
+"key mapping
 xnoremap p "_dP
 nnoremap <C-k> <C-u>
 nnoremap <C-j> <C-d>
@@ -39,12 +40,12 @@ filetype plugin indent on     " Required!
 
 "Plugin Install
 call neobundle#begin(expand('~/.vim.bundle/'))
-NeoBundle 'cohama/lexima.vim'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'cohama/lexima.vim'               "auto close parentheses
+NeoBundle 'vim-airline/vim-airline'         "show status bar
+NeoBundle 'vim-airline/vim-airline-themes'  "status bar themes
+NeoBundle 'scrooloose/nerdtree'             "tree explorer
+NeoBundle 'flazz/vim-colorschemes'          "vim color themes
+NeoBundle 'osyo-manga/vim-anzu'             "show search status
 call neobundle#end()
 
 " Installation check.
