@@ -1,3 +1,42 @@
+"-----dein-----
+if &compatible
+  set nocompatible
+endif
+" プラグインがインストールされるディレクトリ
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  call dein#add('~/.cache/dein')
+  call dein#add('cohama/lexima.vim')               "auto close parentheses
+  call dein#add('vim-airline/vim-airline')         "show status bar
+  call dein#add('vim-airline/vim-airline-themes')  "status bar themes
+  call dein#add('scrooloose/nerdtree')             "tree explorer
+  call dein#add('flazz/vim-colorschemes')          "vim color themes
+  call dein#add('osyo-manga/vim-anzu')             "show search status
+
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
+
 set encoding=UTF-8
 set fileencoding=UTF-8
 set termencoding=UTF-8
@@ -13,6 +52,8 @@ set autoindent
 set smartindent
 set expandtab
 set softtabstop=4
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 set undolevels=300
 set wildmenu wildmode=list:full
@@ -27,34 +68,36 @@ nmap <Esc><Esc> :nohl<CR>
 map <C-t> :tabnew<cr>
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-"--------------------------------------------------------------------------
-" neobundle
-set nocompatible               " Be iMproved
-filetype off                   " Required!
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-filetype plugin indent on     " Required!
-
-"Plugin Install
-call neobundle#begin(expand('~/.vim.bundle/'))
-NeoBundle 'cohama/lexima.vim'               "auto close parentheses
-NeoBundle 'vim-airline/vim-airline'         "show status bar
-NeoBundle 'vim-airline/vim-airline-themes'  "status bar themes
-NeoBundle 'scrooloose/nerdtree'             "tree explorer
-NeoBundle 'flazz/vim-colorschemes'          "vim color themes
-NeoBundle 'osyo-manga/vim-anzu'             "show search status
-call neobundle#end()
-
-" Installation check.
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-        \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoBundleInstall" command.'
-  "finish
-endif
+""--------------------------------------------------------------------------
+"" neobundle
+"set nocompatible               " Be iMproved
+"filetype off                   " Required!
+"
+"if has('vim_starting')
+"  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"endif
+"
+"filetype plugin indent on     " Required!
+"
+""Plugin Install
+"call neobundle#begin(expand('~/.vim.bundle/'))
+"NeoBundle 'cohama/lexima.vim'               "auto close parentheses
+"NeoBundle 'vim-airline/vim-airline'         "show status bar
+"NeoBundle 'vim-airline/vim-airline-themes'  "status bar themes
+"NeoBundle 'scrooloose/nerdtree'             "tree explorer
+"NeoBundle 'flazz/vim-colorschemes'          "vim color themes
+"NeoBundle 'osyo-manga/vim-anzu'             "show search status
+"call neobundle#end()
+"
+"" Installation check.
+"if neobundle#exists_not_installed_bundles()
+"  echomsg 'Not installed bundles : ' .
+"        \ string(neobundle#get_not_installed_bundle_names())
+"  echomsg 'Please execute ":NeoBundleInstall" command.'
+"  "finish
+"endif
+""NeoBundle end
+""--------------------------
 
 "airline
 let g:airline_theme = 'luna'
