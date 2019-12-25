@@ -68,37 +68,6 @@ nmap <Esc><Esc> :nohl<CR>
 map <C-t> :tabnew<cr>
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-""--------------------------------------------------------------------------
-"" neobundle
-"set nocompatible               " Be iMproved
-"filetype off                   " Required!
-"
-"if has('vim_starting')
-"  set runtimepath+=~/.vim/bundle/neobundle.vim/
-"endif
-"
-"filetype plugin indent on     " Required!
-"
-""Plugin Install
-"call neobundle#begin(expand('~/.vim.bundle/'))
-"NeoBundle 'cohama/lexima.vim'               "auto close parentheses
-"NeoBundle 'vim-airline/vim-airline'         "show status bar
-"NeoBundle 'vim-airline/vim-airline-themes'  "status bar themes
-"NeoBundle 'scrooloose/nerdtree'             "tree explorer
-"NeoBundle 'flazz/vim-colorschemes'          "vim color themes
-"NeoBundle 'osyo-manga/vim-anzu'             "show search status
-"call neobundle#end()
-"
-"" Installation check.
-"if neobundle#exists_not_installed_bundles()
-"  echomsg 'Not installed bundles : ' .
-"        \ string(neobundle#get_not_installed_bundle_names())
-"  echomsg 'Please execute ":NeoBundleInstall" command.'
-"  "finish
-"endif
-""NeoBundle end
-""--------------------------
-
 "airline
 let g:airline_theme = 'luna'
 set laststatus=2
@@ -136,7 +105,7 @@ nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 " clear status
-nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+"nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 " statusline
 set statusline=%{anzu#search_status()}
 
